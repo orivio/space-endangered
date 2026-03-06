@@ -11,24 +11,21 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-public class SpaceEndangered extends BasicGame {
+import com.obedotto.spaceendangered.game.*;
 
+public class SpaceEndangered extends StateBasedGame {
+
+	public static final int TITLESCREEN = 0;
+	public static final int PLAY		= 1;
+	
     public SpaceEndangered(String gamename) {
         super(gamename);
     }
 
-    @Override
-    public void init(GameContainer gc) throws SlickException {
-    }
-
-    @Override
-    public void update(GameContainer gc, int i) throws SlickException {
-    }
-
-    @Override
-    public void render(GameContainer gc, Graphics g) throws SlickException {
-        g.drawString("Howdy!", 10, 10);
-    }
+	public void initStatesList(GameContainer gc) throws SlickException {
+		this.addState(new TitleScreen());
+		this.addState(new PlayScreen());
+	}
     
     public static void main(String[] args) {
         try {
@@ -37,7 +34,7 @@ public class SpaceEndangered extends BasicGame {
 			appgc.setDisplayMode(640, 480, false);
 			appgc.start();
 		} catch (SlickException ex) {
-			Logger.getLogger(SimpleSlickGame.class.getName()).log(Level.SEVERE, null, ex);
+			e.printStackTrace();
 		}
     }
 }
