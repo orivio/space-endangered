@@ -1,1 +1,7 @@
+com\obedotto\spaceendangered\assets\Assets.class
+com\obedotto\spaceendangered\assets\Texture.class
+com\obedotto\spaceendangered\game\Game.class
+com\obedotto\spaceendangered\game\TitleScreen.class
+com\obedotto\spaceendangered\engine\Renderer.class
+com\obedotto\spaceendangered\game\Screen.class
 com\obedotto\spaceendangered\core\Main.class

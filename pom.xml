@@ -9,4 +9,57 @@
         <maven.compiler.release>24</maven.compiler.release>
         <exec.mainClass>com.obedotto.spaceendangered.core.Main</exec.mainClass>
     </properties>
+
+    <!-- define JavaFx files as resources to include them in the jar -->
+    <resource>
+        <directory>${basedir}/src/main/java/com/obedotto/view</directory>
+        <filtering>false</filtering>
+        <targetPath>foo/baa/view</targetPath>            
+    </resource>
+
+    <dependencies>
+        <!-- JavaFx -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics </artifactId>
+            <version>12</version>
+            <classifier>win</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>12</version>
+        </dependency>
+
+         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>12</version>
+        </dependency>
+    </dependencies>
 </project>
