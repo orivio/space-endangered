@@ -1,7 +1,6 @@
-package com.obedotto.spaceendangered.game; //should be "src.main.java.com.obedotto.spaceendangered.game"?
+package com.obedotto.spaceendangered.game;
 
+@Deprecated
 public interface Screen {
     
 }
-//old:
-//package com.obedotto.spaceendangered.game;
