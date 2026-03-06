@@ -1,0 +1,2 @@
+Guidelines for Developers:
+Please include your name next to the commit message
