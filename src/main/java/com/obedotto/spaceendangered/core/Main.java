@@ -2,49 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package src.main.java.com.obedotto.spaceendangered.core;
+package com.obedotto.spaceendangered.core;
 
 /**
  *
  * @author obedh
  */
 
-import src.main.java.com.obedotto.spaceendangered.game.Game;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
+// ChatGPT generated placeholder
 public class Main {
 
-    private static Game game;
-
     public static void main(String[] args) {
-        game = new Game();
-        
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Space Endangered");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(800, 600);
+            frame.add(new JLabel("Hello Swing!"));
+            frame.setVisible(true);
+        });
     }
 }
-
-/*
-old:
-
-/
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- /
-
-package com.obedotto.spaceendangered.core;
-
-/**
- *
- * @author obedh
- /
-
-import com.obedotto.spaceendangered.game.Game;
-
-public class Main {
-
-    private static Game game;
-
-    public static void main(String[] args) {
-        game = new Game();
-        
-    }
-}
-
-*/
