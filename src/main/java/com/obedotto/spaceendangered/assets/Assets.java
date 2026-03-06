@@ -1,4 +1,4 @@
-package com.obedotto.spaceendangered.assets; //old did not have src.main.java.
+package com.obedotto.spaceendangered.assets;
 
 import java.util.Map;
 
