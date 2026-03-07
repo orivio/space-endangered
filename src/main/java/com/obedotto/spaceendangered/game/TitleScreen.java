@@ -1,5 +1,10 @@
 package com.obedotto.spaceendangered.game;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+
 public class TitleScreen implements BasicGameState {
 
 	public static final int ID = 0;
