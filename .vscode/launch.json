@@ -1,12 +1,12 @@
 {
-    "version": "0.2.0",
+    "version": "0",
     "configurations": [
         {
-            "type": "jdk",
-            "name": "Launch Main",
+            "type": "java",
+            "name": "Launch Java Program",
             "request": "launch",
-            "mainClass": "com.obedotto.spaceendangered.core.Main",
-            "projectName": "space"
+            "mainClass": "Game",
+            "vmArgs": "-Djava.library.path=lib/native/windows"
         }
     ]
 }
