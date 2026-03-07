@@ -1,3 +1,4 @@
+package com.obedotto.spaceendangered.game;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
