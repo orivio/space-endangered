@@ -7,10 +7,12 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.Image;
 
 public class TitleScreen implements GameState {
 
 	public static final int ID = 0;
+	private Image titleScreenImage;
 	
 	@Override
 	public void mouseClicked(int arg0, int arg1, int arg2, int arg3) {
@@ -112,7 +114,7 @@ public class TitleScreen implements GameState {
 
 	@Override
 	public void init(GameContainer g, StateBasedGame game) throws SlickException {
-
+		titleScreenImage = new Image("src/main/resources/Title Screen.png");
 	}
 
 	@Override
@@ -121,6 +123,7 @@ public class TitleScreen implements GameState {
 
 	@Override
 	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException {
+		titleScreenImage.draw(0, 0);
 	}
 
 	@Override

@@ -14,8 +14,8 @@ public class Game extends StateBasedGame {
     public static final int map = 1;
     public static final int level = 2;
 
-    public static final int width = 1920;
-    public static final int height = 1080;
+    public static final int width = 1280;
+    public static final int height = 720;
     public static final int fps = 60;
 
     private static final double version = 0.1;
