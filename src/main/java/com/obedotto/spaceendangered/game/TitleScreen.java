@@ -1,3 +1,4 @@
+package com.obedotto.spaceendangered.game;
 
 
 import org.newdawn.slick.GameContainer;

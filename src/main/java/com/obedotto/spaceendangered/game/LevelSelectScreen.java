@@ -1,3 +1,4 @@
+package com.obedotto.spaceendangered.game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -5,9 +6,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class PlayScreen implements GameState {
+public class LevelSelectScreen implements GameState {
 
-    public static final int ID = 1;
+    public static final int ID = 2;
 
     @Override
     public void mouseClicked(int arg0, int arg1, int arg2, int arg3) {
@@ -103,7 +104,7 @@ public class PlayScreen implements GameState {
 
     @Override
     public int getID() {
-        return PlayScreen.ID;
+        return LevelSelectScreen.ID;
     }
 
     @Override
