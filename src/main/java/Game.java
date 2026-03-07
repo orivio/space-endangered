@@ -27,8 +27,8 @@ public class Game extends StateBasedGame {
     public void initStatesList(GameContainer arg0) throws SlickException {
         // TODO Auto-generated method stub
         this.addState(new TitleScreen());
-        this.addState(new Map()); //Map = level-choosing interface yk
-        this.addState(new Level()); //in a level
+        this.addState(new PlayScreen()); //Playing the game
+        this.addState(new LevelSelectScreen()); //Selecting a level
     }
 
     public static void main(String[] args) throws SlickException{

@@ -5,9 +5,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Map implements GameState {
+public class LevelSelectScreen implements GameState {
 
-    public static final int ID = 1;
+    public static final int ID = 2;
 
     @Override
     public void mouseClicked(int arg0, int arg1, int arg2, int arg3) {
@@ -150,7 +150,7 @@ public class Map implements GameState {
     @Override
     public int getID() {
         // TODO Auto-generated method stub
-        return Map.ID;
+        return LevelSelectScreen.ID;
     }
 
     @Override
