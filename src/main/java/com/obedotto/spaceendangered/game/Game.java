@@ -1,5 +1,4 @@
-//SEE OLD VERS BELOW - Russ
-package com.obedotto.spaceendangered.game; //should be "src.main.java.com.obedotto.spaceendangered.game"
+package com.obedotto.spaceendangered.game;
 
 import com.obedotto.spaceendangered.assets.Assets;
 import com.obedotto.spaceendangered.engine.Renderer;
@@ -15,13 +14,3 @@ public class Game {
 
     }
 }
-
-/*
-package com.obedotto.spaceendangered.game; //should be "src.main.java.com.obedotto.spaceendangered.game"
-
-import com.obedotto.spaceendangered.assets.Assets;
-import com.obedotto.spaceendangered.engine.Renderer;
-
-import javafx.application.Application;
-import javafx.stage.Stage;
-*/

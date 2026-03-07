@@ -1,4 +1,4 @@
-package com.obedotto.spaceendangered.engine; //old did not have src.main.java.
+package com.obedotto.spaceendangered.engine;
 
 public class Renderer {
 

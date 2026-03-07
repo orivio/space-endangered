@@ -1,0 +1,5 @@
+Guidelines for Developers:
+Please include your name next to the commit message
+
+Note for Peter:
+com.obedotto.spaceendangered.core.SpaceEndangered is going to be the main class.
