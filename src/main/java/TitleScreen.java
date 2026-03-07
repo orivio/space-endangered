@@ -156,7 +156,7 @@ public class TitleScreen implements GameState {
 	}
 
 	@Override
-	public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException {
+	public void init(GameContainer g, StateBasedGame game) throws SlickException {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'init'");
 	}
