@@ -4,7 +4,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import com.obedotto.spaceendangered.assets.Assets;
 import com.obedotto.spaceendangered.engine.Renderer;
 
-public class Game extends StateBasedGame{
+public class Game extends StateBasedGame {
 
     public static final int titlescreen = 0;
     public static final int map = 1;
@@ -19,6 +19,8 @@ public class Game extends StateBasedGame{
     public Game(String name) {
         super(name);
         //TODO Auto-generated constructor stub
+
+
     }
 
     @Override
