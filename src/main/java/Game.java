@@ -18,7 +18,7 @@ public class Game extends BasicGame{
     @Override
     public void render(GameContainer container, Graphics g) throws SlickException { //renders graphic elements
         // TODO Auto-generated method stub
-        g.drawString("If an orange are called orange, why is an apple not called red?.", 50f, 50f);
+        g.drawString("If an orange are called orange, why is an apple not called red?.", container.getWidth()/2, 50f);
     }
 
     @Override
