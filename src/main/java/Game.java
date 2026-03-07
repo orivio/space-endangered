@@ -1,44 +1,44 @@
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.GameState;
+import org.newdawn.slick.state.StateBasedGame;
 import com.obedotto.spaceendangered.assets.Assets;
 import com.obedotto.spaceendangered.engine.Renderer;
 
-public class Game extends BasicGame{
+public class Game extends StateBasedGame{
 
-    public Game(String title) {
-        super(title);
+    public static final int titlescreen = 0;
+    public static final int map = 1;
+    public static final int level = 2;
+
+    public static final int width = 1920;
+    public static final int height = 1080;
+    public static final int fps = 60;
+
+    private static final double version = 0.1;
+
+    public Game(String name) {
+        super(name);
         //TODO Auto-generated constructor stub
     }
-    public static void main(String[] args) throws SlickException {
-        AppGameContainer game = new AppGameContainer(new Game("title"));
-        game.setDisplayMode(1920, 1080, false);
-        game.setTargetFrameRate(144);
-        game.start();
-    }
 
     @Override
-    public void render(GameContainer container, Graphics g) throws SlickException { //renders graphic elements
+    public void initStatesList(GameContainer arg0) throws SlickException {
         // TODO Auto-generated method stub
-        g.drawString("If an orange are called orange, why is an apple not called red?.", container.getWidth()/2, 50f);
+        this.addState(new TitleScreen());
+        this.addState(new Map()); //Map = level-choosing interface yk
+        this.addState(new Level()); //in a level
     }
 
-    @Override
-    public void init(GameContainer container) throws SlickException { //runs on game opening
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void update(GameContainer container, int delta) throws SlickException { //code that runs every step, where delta = time(ms) since last frame
-        // TODO Auto-generated method stub
+    public static void main(String[] args) throws SlickException{
+        try{
+            AppGameContainer game = new AppGameContainer(new Game("Space Endangered v" + version));
+            game.setDisplayMode(width, height, false);
+            game.setTargetFrameRate(60);
+            game.setShowFPS(true); //for debug
+            game.start();
+        }
+        catch(SlickException e) {
+            e.printStackTrace();
+        }
     }
 }
-
-/*
-private Renderer renderer;
-    private Assets assets;
-
-    private TitleScreen titleScreen;
-
-    public Game() {
-        this.assets = new Assets();
-    }
- */

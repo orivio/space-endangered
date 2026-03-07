@@ -13,7 +13,11 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.*;
 import com.obedotto.spaceendangered.game.*;
 
+import TitleScreen;
+
 public class SpaceEndangered extends StateBasedGame {
+
+@Deprecated
 
 	public static final int TITLESCREEN = 0;
 	public static final int PLAY		= 1;
