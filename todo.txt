@@ -1,5 +1,5 @@
 Section 1:
 
-Set up Slick2D + configs (Peter)
-Concept art (Russlan)
-Learn how to use Slick2D (Russlan and Obed)
+Set up Slick2D + configs (done)
+Concept art (orivio)
+Learn how to use Slick2D (orivio and Obed)
