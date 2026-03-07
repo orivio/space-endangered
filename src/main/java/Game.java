@@ -1,9 +1,12 @@
-package com.obedotto.spaceendangered.game;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 import com.obedotto.spaceendangered.assets.Assets;
 import com.obedotto.spaceendangered.engine.Renderer;
+import com.obedotto.spaceendangered.game.LevelSelectScreen;
+import com.obedotto.spaceendangered.game.PlayScreen;
+import com.obedotto.spaceendangered.game.TitleScreen;
 
 public class Game extends StateBasedGame {
 
