@@ -10,9 +10,9 @@ import com.obedotto.spaceendangered.game.TitleScreen;
 
 public class Game extends StateBasedGame {
 
-    public static final int titlescreen = 0;
-    public static final int map = 1;
-    public static final int level = 2;
+    public static final int TITLESCREEN = 0;
+    public static final int LEVEL_SELECT = 1;
+    public static final int PLAY = 2;
 
     public static final int width = 1280;
     public static final int height = 720;
@@ -30,16 +30,16 @@ public class Game extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer arg0) throws SlickException {
         this.addState(new TitleScreen());
-        this.addState(new PlayScreen()); //Playing the game
         this.addState(new LevelSelectScreen()); //Selecting a level
+        this.addState(new PlayScreen()); //Playing the game
     }
 
-    public static void main(String[] args) throws SlickException{
+    public static void main(String[] args) throws SlickException {
         try{
             AppGameContainer game = new AppGameContainer(new Game("Space Endangered v" + version));
             game.setDisplayMode(width, height, false);
             game.setTargetFrameRate(60);
-            game.setShowFPS(true); //for debug
+            game.setShowFPS(false);
             game.start();
         }
         catch(SlickException e) {

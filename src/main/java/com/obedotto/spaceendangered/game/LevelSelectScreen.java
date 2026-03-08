@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class LevelSelectScreen implements GameState {
 
-    public static final int ID = 2;
+    public static final int ID = 1;
 
     @Override
     public void mouseClicked(int arg0, int arg1, int arg2, int arg3) {
@@ -44,6 +44,7 @@ public class LevelSelectScreen implements GameState {
 
     @Override
     public boolean isAcceptingInput() {
+        return true;
     }
 
     @Override

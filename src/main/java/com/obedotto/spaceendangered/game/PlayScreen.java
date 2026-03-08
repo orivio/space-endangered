@@ -1,17 +1,28 @@
 package com.obedotto.spaceendangered.game;
+import java.util.List;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.util.List;
+import java.util.ArrayList;
+
+
+
 public class PlayScreen implements GameState {
 
-    public static final int ID = 1;
+    public static final int ID = 2;
+
+    private List<Image> sprites;
 
     @Override
     public void mouseClicked(int arg0, int arg1, int arg2, int arg3) {
+        
     }
 
     @Override
@@ -44,6 +55,7 @@ public class PlayScreen implements GameState {
 
     @Override
     public boolean isAcceptingInput() {
+        return true;
     }
 
     @Override
@@ -109,6 +121,12 @@ public class PlayScreen implements GameState {
 
     @Override
     public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException {
+        sprites = new ArrayList<>();
+
+        sprites.add(new Image("src/main/resources/sprites/alienNormal-1.png"));
+        sprites.add(new Image("src/main/resources/sprites/alienPincer-1.png"));
+        sprites.add(new Image("src/main/resources/sprites/alienShield-1.png"));
+        sprites.add(new Image("src/main/resources/sprites/alienShooter-1.png"));
     }
 
     @Override
@@ -117,6 +135,9 @@ public class PlayScreen implements GameState {
 
     @Override
     public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException {
+        for(int i = 0; i < sprites.size(); i ++) {
+            sprites.get(i).draw(i * 10, 0);
+        }
     }
 
     @Override

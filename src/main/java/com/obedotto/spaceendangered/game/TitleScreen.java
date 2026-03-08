@@ -9,6 +9,8 @@ import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.Image;
 
+import Game;
+
 public class TitleScreen implements GameState {
 
 	public static final int ID = 0;
@@ -126,8 +128,22 @@ public class TitleScreen implements GameState {
 		titleScreenImage.draw(0, 0);
 	}
 
+	// ----- ChatGPT generated placeholder -----
 	@Override
-	public void update(GameContainer arg0, StateBasedGame arg1, int arg2) throws SlickException {
-	}
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+    Input input = gc.getInput();
+    
+    // Check if the left mouse button was pressed this frame
+    if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+        // Optional: Check if click is within a certain area (e.g., a button)
+        int x = input.getMouseX();
+        int y = input.getMouseY();
+        
+        if (x > 100 && x < 200 && y > 100 && y < 150) {
+            sbg.enterState(2);
+        }
+    }
+	// -----                               -----
+}
 
 }
