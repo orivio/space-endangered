@@ -10,16 +10,23 @@ import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.Color;
 
-import java.util.List;
 import java.util.ArrayList;
 
+import com.obedotto.spaceendangered.assets.Sprite;
+import com.obedotto.spaceendangered.engine.Renderer;
+import com.obedotto.spaceendangered.game.play.*;
+
+import org.newdawn.slick.TrueTypeFont;
+import java.awt.Font;
 
 
 public class PlayScreen implements GameState {
 
     public static final int ID = 2;
 
-    private List<Image> sprites;
+    private List<AlienUnitCard> cards;
+    private Image background;
+    private Renderer renderer;
 
     @Override
     public void mouseClicked(int arg0, int arg1, int arg2, int arg3) {
@@ -122,20 +129,17 @@ public class PlayScreen implements GameState {
 
     @Override
     public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException {
-        sprites = new ArrayList<>();
+        cards = new ArrayList<>();
 
-        Image normal = new Image("src/main/resources/sprites/alienNormal-1.png");
-        Image pincer = new Image("src/main/resources/sprites/alienPincer-1.png");
-        Image shield = new Image("src/main/resources/sprites/alienShield-1.png");
-        Image shooter = new Image("src/main/resources/sprites/alienShooter-1.png");
-        normal.setFilter(Image.FILTER_NEAREST);
-        pincer.setFilter(Image.FILTER_NEAREST);
-        shield.setFilter(Image.FILTER_NEAREST);
-        shooter.setFilter(Image.FILTER_NEAREST);
-        sprites.add(normal);
-        sprites.add(pincer);
-        sprites.add(shield);
-        sprites.add(shooter);
+        cards.add(new ShooterUnitCard());
+        cards.add(new NormalUnitCard());
+        cards.add(new PincerUnitCard());
+        cards.add(new ShieldUnitCard());
+
+        background = new Image("src/main/resources/Play Screen.png");
+        renderer = new Renderer();
+
+
     }
 
     @Override
@@ -144,16 +148,33 @@ public class PlayScreen implements GameState {
 
     @Override
     public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException {
-        arg2.setBackground(new Color(255, 255, 255));
-        arg2.clear();
+        background.draw();
         
-        for(int i = 0; i < sprites.size(); i ++) {
-            sprites.get(i).draw(i * 100, 0, 100, 100);
+        for(int i = 0; i < cards.size(); i ++) {
+            cards.get(i).draw(renderer);
         }
+
+        Font font = new Font("Verdana", Font.BOLD, 35);
+        TrueTypeFont ttf = new TrueTypeFont(font, true);
+        ttf.drawString(1105, 595, "$67", Color.black);
     }
 
     @Override
-    public void update(GameContainer arg0, StateBasedGame arg1, int arg2) throws SlickException {
+    public void update(GameContainer container, StateBasedGame arg1, int arg2) throws SlickException {
+        Input input = container.getInput();
+        int mouseX = input.getMouseX();
+        int mouseY = input.getMouseY();
+
+        for(AlienUnitCard card : cards) {
+            if(card.getSprite().getBounds().contains(mouseX, mouseY)) {
+                card.activate();
+            }
+            else {
+                card.deactivate();
+            }
+
+            card.update(arg2 / 1000.0f);
+        }
     }
     
 }
