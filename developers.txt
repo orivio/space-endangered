@@ -1,6 +1,0 @@
-Guidelines for Developers:
-Please include your name next to the commit message
-
-Note for -----:
-com.obedotto.spaceendangered.core.SpaceEndangered is going to be the main class.
---> don't think this is really relevant anymore, I set Game.java as main via Slick2D and it does work - ori
