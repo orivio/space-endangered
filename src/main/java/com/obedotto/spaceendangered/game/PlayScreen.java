@@ -8,6 +8,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.Color;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -123,10 +124,18 @@ public class PlayScreen implements GameState {
     public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException {
         sprites = new ArrayList<>();
 
-        sprites.add(new Image("src/main/resources/sprites/alienNormal-1.png"));
-        sprites.add(new Image("src/main/resources/sprites/alienPincer-1.png"));
-        sprites.add(new Image("src/main/resources/sprites/alienShield-1.png"));
-        sprites.add(new Image("src/main/resources/sprites/alienShooter-1.png"));
+        Image normal = new Image("src/main/resources/sprites/alienNormal-1.png");
+        Image pincer = new Image("src/main/resources/sprites/alienPincer-1.png");
+        Image shield = new Image("src/main/resources/sprites/alienShield-1.png");
+        Image shooter = new Image("src/main/resources/sprites/alienShooter-1.png");
+        normal.setFilter(Image.FILTER_NEAREST);
+        pincer.setFilter(Image.FILTER_NEAREST);
+        shield.setFilter(Image.FILTER_NEAREST);
+        shooter.setFilter(Image.FILTER_NEAREST);
+        sprites.add(normal);
+        sprites.add(pincer);
+        sprites.add(shield);
+        sprites.add(shooter);
     }
 
     @Override
@@ -135,8 +144,11 @@ public class PlayScreen implements GameState {
 
     @Override
     public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException {
+        arg2.setBackground(new Color(255, 255, 255));
+        arg2.clear();
+        
         for(int i = 0; i < sprites.size(); i ++) {
-            sprites.get(i).draw(i * 10, 0);
+            sprites.get(i).draw(i * 100, 0, 100, 100);
         }
     }
 
