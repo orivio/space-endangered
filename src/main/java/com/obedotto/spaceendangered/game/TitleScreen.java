@@ -8,6 +8,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import Game;
 
@@ -139,8 +141,9 @@ public class TitleScreen implements GameState {
         int x = input.getMouseX();
         int y = input.getMouseY();
         
-        if (x > 100 && x < 200 && y > 100 && y < 150) {
-            sbg.enterState(2);
+        if (x > 392 && x < 932 && y > 467 && y < 618) {
+            sbg.enterState(2, new FadeOutTransition(), new FadeInTransition());
+
         }
     }
 	// -----                               -----
