@@ -1,15 +1,18 @@
 package com.obedotto.spaceendangered.game.play;
 
-public class NormalUnit {
+import org.newdawn.slick.SlickException;
+import com.obedotto.spaceendangered.assets.Sprite;
+
+public class NormalUnit extends AlienUnit {
 
   private float advanceTimer;
-  private final float advanceRate;
+  private final float advanceRate = 0.2f;
 
   private float shootTimer;
-  private final float shootRate;
+  private final float shootRate = 0.1f;
   
-  public NormalUnit() {
-    super();
+  public NormalUnit() throws SlickException {
+    this.sprite = new Sprite("src/main/resources/sprites/alienNormal-1.png", 64, 64);
     advanceTimer = 0;
     shootTimer = 0;
   }

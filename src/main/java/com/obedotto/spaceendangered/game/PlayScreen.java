@@ -27,6 +27,7 @@ public class PlayScreen extends BasicGameState {
     private List<AlienUnitCard> cards;
     private Image background;
     private Renderer renderer;
+    private BattleField battleField;
 
     @Override
     public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException {
@@ -35,6 +36,15 @@ public class PlayScreen extends BasicGameState {
     @Override
     public int getID() {
         return PlayScreen.ID;
+    }
+
+    @Override
+    public void mousePressed(int button, int x, int y) {
+        try {
+            battleField.handleClick(x, y);
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -49,7 +59,7 @@ public class PlayScreen extends BasicGameState {
         background = new Image("src/main/resources/Play Screen.png");
         renderer = new Renderer();
 
-
+        battleField = new BattleField();
     }
 
     @Override
@@ -67,6 +77,8 @@ public class PlayScreen extends BasicGameState {
         Font font = new Font("Verdana", Font.BOLD, 35);
         TrueTypeFont ttf = new TrueTypeFont(font, true);
         ttf.drawString(1105, 595, "$67", Color.black);
+
+        battleField.render(renderer);
     }
 
     @Override
@@ -85,6 +97,8 @@ public class PlayScreen extends BasicGameState {
 
             card.update(arg2 / 1000.0f);
         }
+
+        battleField.update(arg2 / 1000.0f);
     }
     
 }
