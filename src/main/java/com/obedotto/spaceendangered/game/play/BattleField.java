@@ -30,5 +30,9 @@ public class BattleField {
       cell.update(deltaTime);
     }
   }
-  
+
+  public void placeUnit(AlienUnit unit, int i, int j) {
+    this.grid[i][j] = unit;
+    unit.setContainer(this.grid[i][j]);
+  }
 }
