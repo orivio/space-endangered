@@ -1,0 +1,19 @@
+Intro---
+
+
+
+orivio---
+
+This has been quite a fun introduction to gamedev! Since java's the only language that I really know, it's nice to be able to use it for something that I find more fun.
+Initially this was gonna be a solo project, but I found it a bit too difficult to learn how to do and to do entirely by myself in a month (we only found out about hackatime at the beginning of march!)
+So I decided to invite some of my friends.
+I helped out with the setup for Slick2D, and then I did quite a good bit of spritework. I'm really happy with how the sprites turned out. I feel like they reflect the retro style of the game while still looking pretty interesting!
+
+I plan on animating the sprites and also contributing more to the programming than just setup as time passes.
+
+A---
+
+
+
+B---
+
