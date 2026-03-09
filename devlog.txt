@@ -11,9 +11,10 @@ I helped out with the setup for Slick2D, and then I did quite a good bit of spri
 
 I plan on animating the sprites and also contributing more to the programming than just setup as time passes.
 
-A---
+obedot---
 
-
+I've done a bit of gamedev in Java before, but I've never tried Slick2D. I've learned enough to be able to use it so far.
+I set up the title screen, and play screen very rudimentirariarialy. I plan to implement more complex AI for the units, and bullets.
 
 B---
 
