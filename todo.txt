@@ -1,7 +1,8 @@
 Section 1:
 
+Set up Slick2D + configs (done)
 Concept art (orivio)
 Make art for the Unit Cards, Title Screen, Play Screen, and Level Select Screen (orivio mostly)
 Program the alien units (Obed)
-Make the AI
 Learn how to use Slick2D (orivio and Obed)
+Convert .ico sprite files to png (orivio)
