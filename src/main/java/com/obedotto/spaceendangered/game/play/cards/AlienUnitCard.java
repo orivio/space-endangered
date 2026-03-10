@@ -1,4 +1,4 @@
-package com.obedotto.spaceendangered.game.play;
+package com.obedotto.spaceendangered.game.play.cards;
 
 import com.obedotto.spaceendangered.engine.Renderer;
 import com.obedotto.spaceendangered.assets.Sprite;
@@ -21,6 +21,10 @@ public abstract class AlienUnitCard {
 
     public Sprite getSprite() {
         return sprite;
+    }
+
+    public boolean contains(int x, int y) {
+        return sprite.contains(x, y);
     }
 
     public void update(float dt) {

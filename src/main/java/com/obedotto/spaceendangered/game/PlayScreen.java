@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import com.obedotto.spaceendangered.assets.Sprite;
 import com.obedotto.spaceendangered.engine.Renderer;
 import com.obedotto.spaceendangered.game.play.*;
+import com.obedotto.spaceendangered.game.play.cards.AlienUnitCard;
+import com.obedotto.spaceendangered.game.play.cards.NormalUnitCard;
+import com.obedotto.spaceendangered.game.play.cards.PincerUnitCard;
+import com.obedotto.spaceendangered.game.play.cards.ShieldUnitCard;
+import com.obedotto.spaceendangered.game.play.cards.ShooterUnitCard;
 
 import org.newdawn.slick.TrueTypeFont;
 import java.awt.Font;
@@ -25,6 +30,7 @@ public class PlayScreen extends BasicGameState {
     public static final int ID = 2;
 
     private List<AlienUnitCard> cards;
+    private int currentSelectedCard = -1;
     private Image background;
     private Renderer renderer;
     private BattleField battleField;
@@ -41,9 +47,17 @@ public class PlayScreen extends BasicGameState {
     @Override
     public void mousePressed(int button, int x, int y) {
         try {
-            battleField.handleClick(x, y);
+            battleField.handleClick(x, y, currentSelectedCard);
         } catch (SlickException e) {
             e.printStackTrace();
+        }
+
+        for(int i = 0; i < cards.size(); i ++) {
+            AlienUnitCard card = cards.get(i);
+
+            if(card.contains(x, y)) {
+                currentSelectedCard = i;
+            }
         }
     }
 

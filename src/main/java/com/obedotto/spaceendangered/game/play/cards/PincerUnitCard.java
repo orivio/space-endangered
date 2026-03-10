@@ -1,7 +1,8 @@
-package com.obedotto.spaceendangered.game.play;
+package com.obedotto.spaceendangered.game.play.cards;
 
 import org.newdawn.slick.SlickException;
 import com.obedotto.spaceendangered.assets.Sprite;
+import com.obedotto.spaceendangered.game.play.cards.AlienUnitCard;
 
 public class PincerUnitCard extends AlienUnitCard {
     public PincerUnitCard() throws SlickException {

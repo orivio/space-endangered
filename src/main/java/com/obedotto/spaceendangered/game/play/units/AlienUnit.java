@@ -1,7 +1,9 @@
-package com.obedotto.spaceendangered.game.play;
+package com.obedotto.spaceendangered.game.play.units;
 
 import org.newdawn.slick.SlickException;
 import com.obedotto.spaceendangered.engine.Renderer;
+import com.obedotto.spaceendangered.game.play.BattleCell;
+import com.obedotto.spaceendangered.game.play.BattleField;
 import com.obedotto.spaceendangered.assets.Sprite;
 
 public class AlienUnit {
@@ -11,7 +13,7 @@ public class AlienUnit {
   private int x, y;
   
   public AlienUnit() throws SlickException {
-    this.sprite = new Sprite("src/main/resources/sprites/alienNormal-1.png", 64, 64);
+    this.sprite = new Sprite("src/main/resources/sprites/alienNormal-1.png", BattleField.CELL_WIDTH, BattleField.CELL_HEIGHT);
   }
 
   public void setContainer(BattleCell container) {
@@ -28,11 +30,11 @@ public class AlienUnit {
 
   public void setX(int x) {
     this.x = x;
-    this.sprite.setX(x * 64);
+    this.sprite.setX(x * BattleField.CELL_WIDTH);
   }
   public void setY(int y) {
     this.y = y;
-    this.sprite.setY(y * 64);
+    this.sprite.setY(y * BattleField.CELL_HEIGHT);
   }
   public int getX() {
     return x;

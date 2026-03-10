@@ -1,9 +1,10 @@
-package com.obedotto.spaceendangered.game.play;
+package com.obedotto.spaceendangered.game.play.units;
 
 import org.newdawn.slick.SlickException;
+import com.obedotto.spaceendangered.game.play.BattleField;
 import com.obedotto.spaceendangered.assets.Sprite;
 
-public class NormalUnit extends AlienUnit {
+public class ShooterUnit extends AlienUnit {
 
   private float advanceTimer;
   private final float advanceRate = 0.2f;
@@ -11,8 +12,8 @@ public class NormalUnit extends AlienUnit {
   private float shootTimer;
   private final float shootRate = 0.1f;
   
-  public NormalUnit() throws SlickException {
-    this.sprite = new Sprite("src/main/resources/sprites/alienNormal-1.png", 64, 64);
+  public ShooterUnit() throws SlickException {
+    this.sprite = new Sprite("src/main/resources/sprites/alienShooter-1.png", BattleField.CELL_WIDTH, BattleField.CELL_HEIGHT);
     advanceTimer = 0;
     shootTimer = 0;
   }

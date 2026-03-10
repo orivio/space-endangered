@@ -2,6 +2,7 @@ package com.obedotto.spaceendangered.game.play;
 
 import org.newdawn.slick.geom.Rectangle;
 import com.obedotto.spaceendangered.engine.Renderer;
+import com.obedotto.spaceendangered.game.play.units.AlienUnit;
 
 public class BattleCell {
   private AlienUnit alienUnit;
@@ -12,7 +13,7 @@ public class BattleCell {
   public BattleCell(int x, int y) {
     this.x = x;
     this.y = y;
-    this.bounds = new Rectangle(x * 64, y * 64, 64, 64);
+    this.bounds = new Rectangle(x * BattleField.CELL_WIDTH, y * BattleField.CELL_HEIGHT, BattleField.CELL_WIDTH, BattleField.CELL_HEIGHT);
   }
 
   public void setAlienUnit(AlienUnit unit) {
@@ -32,22 +33,26 @@ public class BattleCell {
     }
   }
 
-  protected void goNorth() {
+  public void goNorth() {
+    if(north.getAlienUnit() != null) return;
     north.setAlienUnit(this.alienUnit);
     setAlienUnit(null);
     north.getAlienUnit().setContainer(this.north);
   }
-  protected void goSouth() {
+  public void goSouth() {
+    if(south.getAlienUnit() != null) return;
     south.setAlienUnit(this.alienUnit);
     setAlienUnit(null);
     south.getAlienUnit().setContainer(this.south);
   }
-  protected void goEast() {
+  public void goEast() {
+    if(east.getAlienUnit() != null) return;
     east.setAlienUnit(this.alienUnit);
     setAlienUnit(null);
     east.getAlienUnit().setContainer(this.east);
   }
-  protected void goWest() {
+  public void goWest() {
+    if(west.getAlienUnit() != null) return;
     west.setAlienUnit(this.alienUnit);
     setAlienUnit(null);
     west.getAlienUnit().setContainer(this.west);

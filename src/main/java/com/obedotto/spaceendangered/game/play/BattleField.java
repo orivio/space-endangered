@@ -3,12 +3,16 @@ package com.obedotto.spaceendangered.game.play;
 import org.newdawn.slick.SlickException;
 
 import com.obedotto.spaceendangered.engine.Renderer;
+import com.obedotto.spaceendangered.game.play.units.*;
+import com.obedotto.spaceendangered.game.play.cards.*;
 
 public class BattleField {
 
     private BattleCell[][] grid;
     public static final int WIDTH = 20;
     public static final int HEIGHT = 7;
+    public static final int CELL_WIDTH = 64;
+    public static final int CELL_HEIGHT = 64;
 
     public BattleField() {
         this.grid = new BattleCell[WIDTH][HEIGHT];
@@ -32,12 +36,17 @@ public class BattleField {
         }
     }
 
-    public void handleClick(int mouseX, int mouseY) throws SlickException {
+    public void handleClick(int mouseX, int mouseY, int selectedCard) throws SlickException {
         for(int i = 0; i < BattleField.WIDTH; i ++) {
             for(int j = 0; j < BattleField.HEIGHT; j ++) {
                 if(grid[i][j].contains(mouseX, mouseY)) {
                     grid[i][j].handleClick(mouseX, mouseY);
-                    placeUnit(new NormalUnit(), i, j);
+                    switch(selectedCard) {
+                        case 0 -> placeUnit(new ShooterUnit(), i, j);
+                        case 1 -> placeUnit(new NormalUnit(), i, j);
+                        case 2 -> placeUnit(new PincerUnit(), i, j);
+                        case 3 -> placeUnit(new ShieldUnit(), i, j);
+                    }
                 }
             }
         }

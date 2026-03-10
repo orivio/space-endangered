@@ -43,6 +43,9 @@ public class Sprite {
     public float getH() {
         return this.h;
     }
+    public boolean contains(int x, int y) {
+        return getBounds().contains(x, y);
+    }
     public Rectangle getBounds() {
         return this.rectangle;
     }
