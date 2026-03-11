@@ -8,7 +8,12 @@ public class Renderer {
     }
 
     public void drawSprite(Sprite sprite) {
-        sprite.getImage().draw(sprite.getX(), sprite.getY(), sprite.getW(), sprite.getH());
+        if (sprite.getUnitTrue()){
+           sprite.getImage().draw(sprite.getX(), sprite.getY(), sprite.getW(), sprite.getH()); //make it so that it spawns upsidedown 
+        }
+        else{
+            sprite.getImage().draw(sprite.getX(), sprite.getY(), sprite.getW(), sprite.getH());
+        }
     }
 
 }
