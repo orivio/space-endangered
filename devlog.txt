@@ -1,7 +1,3 @@
-Intro---
-
-
-
 orivio---
 
 This has been quite a fun introduction to gamedev! Since java's the only language that I really know, it's nice to be able to use it for something that I find more fun.
@@ -17,4 +13,4 @@ I've done a bit of gamedev in Java before, but I've never tried Slick2D. I've le
 I set up the title screen, and play screen very rudimentirariarialy. I plan to implement more complex AI for the units, and bullets.
 
 B---
-
+this guy hasn't done anything!!
