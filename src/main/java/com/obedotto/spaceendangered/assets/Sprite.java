@@ -8,7 +8,7 @@ public class Sprite {
     private Image image;
     private float x, y, w, h;
     private Rectangle rectangle;
-    private boolean isUnit;
+    private boolean xFlip, yFlip;
 
     public Sprite(String path, float w, float h) throws SlickException {
         image = new Image(path);
@@ -26,17 +26,23 @@ public class Sprite {
         this.y = y;
         this.rectangle = new Rectangle(x, y, w, h);
     }
-    public void setIsUnit(){
-        this.isUnit = true;
+    public void setXFlip(boolean b){
+        this.xFlip = b;
+    }
+    public void setYFlip(boolean b){
+        this.yFlip = b;
+    }
+    public void getXFlip(){
+        return this.xFlip;
+    }
+    public void getYFlip(){
+        return this.yFlip;
     }
     public float getX() {
         return this.x;
     }
     public float getY() {
         return this.y;
-    }
-    public boolean getUnitTrue(){
-        return this.isUnit;
     }
     public void changeX(float x) {
         setX(getX() + x);
