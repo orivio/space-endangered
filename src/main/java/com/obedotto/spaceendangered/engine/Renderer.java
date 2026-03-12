@@ -8,8 +8,8 @@ public class Renderer {
     }
 
     public void drawSprite(Sprite sprite) {
-        if (sprite.getUnitTrue()){
-           sprite.getImage().draw(sprite.getX(), sprite.getY(), sprite.getW(), sprite.getH()); //make it so that it spawns upsidedown 
+        if (sprite.getXFlip()){
+           sprite.getImage().draw(sprite.getX(), sprite.getY(), sprite.getW(), sprite.getH()); // Todo: XFLIP
         }
         else{
             sprite.getImage().draw(sprite.getX(), sprite.getY(), sprite.getW(), sprite.getH());
