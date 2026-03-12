@@ -26,7 +26,6 @@ public class AlienUnit {
 
   public void render(Renderer renderer) {
     renderer.drawSprite(sprite);
-    sprite.setIsUnit();
   }
 
   public void setX(int x) {
