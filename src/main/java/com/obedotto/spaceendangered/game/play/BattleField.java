@@ -36,20 +36,21 @@ public class BattleField {
         }
     }
 
-    public void handleClick(int mouseX, int mouseY, int selectedCard) throws SlickException {
+    public int handleClick(int mouseX, int mouseY, AlienUnitCard selectedCard) throws SlickException {
         for(int i = 0; i < BattleField.WIDTH; i ++) {
             for(int j = 0; j < BattleField.HEIGHT; j ++) {
                 if(grid[i][j].contains(mouseX, mouseY)) {
                     grid[i][j].handleClick(mouseX, mouseY);
-                    switch(selectedCard) {
-                        case 0 -> placeUnit(new ShooterUnit(), i, j);
-                        case 1 -> placeUnit(new NormalUnit(), i, j);
-                        case 2 -> placeUnit(new PincerUnit(), i, j);
-                        case 3 -> placeUnit(new ShieldUnit(), i, j);
+                    switch(selectedCard.cardType) {
+                        case AlienCard.SHOOTER: return placeUnit(selectedCard.cost, new ShooterUnit(), i, j);
+                        case AlienCard.NORMAL: return placeUnit(selectedCard.cost, new NormalUnit(), i, j);
+                        case AlienCard.PINCER: return placeUnit(selectedCard.cost, new PincerUnit(), i, j);
+                        case AlienCard.SHIELD: return placeUnit(selectedCard.cost, new ShieldUnit(), i, j);
                     }
                 }
             }
         }
+        return 0;
     }
   
     public void update(float deltaTime) {
@@ -68,10 +69,11 @@ public class BattleField {
         }
     }
 
-    public void placeUnit(AlienUnit unit, int i, int j) {
+    public int placeUnit(int cost, AlienUnit unit, int i, int j) {
         this.grid[i][j].setAlienUnit(unit);
         unit.setContainer(this.grid[i][j]);
         unit.setX(i);
         unit.setY(j);
+        return cost;
     }
 }

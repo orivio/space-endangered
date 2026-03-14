@@ -1,7 +1,7 @@
 package com.obedotto.spaceendangered.game.play.cards;
 
-import com.obedotto.spaceendangered.engine.Renderer;
 import com.obedotto.spaceendangered.assets.Sprite;
+import com.obedotto.spaceendangered.engine.Renderer;
 import com.obedotto.spaceendangered.util.Utils;
 
 public abstract class AlienUnitCard {
@@ -10,6 +10,8 @@ public abstract class AlienUnitCard {
     private float animationTimer;
     private int animation = 0;
     private float initY;
+    public int cost;
+    public AlienCard cardType;
 
     public AlienUnitCard() {
 

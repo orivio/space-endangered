@@ -9,5 +9,7 @@ public class NormalUnitCard extends AlienUnitCard {
         this.sprite = new Sprite("src/main/resources/sprites/alienNormal-card1.png", 150, 150);
         this.sprite.setX(15 + 175);
         this.sprite.setY(567);
+        this.cost = 5;
+        this.cardType = AlienCard.NORMAL;
     }
 }

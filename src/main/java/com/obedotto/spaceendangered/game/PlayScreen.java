@@ -29,11 +29,16 @@ public class PlayScreen extends BasicGameState {
 
     public static final int ID = 2;
 
+    private BattleStage battleStage;
+
     private List<AlienUnitCard> cards;
-    private int currentSelectedCard = -1;
+    private AlienUnitCard currentSelectedCard;
     private Image background;
     private Renderer renderer;
     private BattleField battleField;
+    private float setupTimer;
+    private float costTimer;
+    private int moneyLeft;
 
     @Override
     public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException {
@@ -46,17 +51,22 @@ public class PlayScreen extends BasicGameState {
 
     @Override
     public void mousePressed(int button, int x, int y) {
-        try {
-            battleField.handleClick(x, y, currentSelectedCard);
-        } catch (SlickException e) {
-            e.printStackTrace();
-        }
+        if(battleStage == BattleStage.BATTLE_SETUP) {
+            try {
+                if(currentSelectedCard != null && moneyLeft - currentSelectedCard.cost >= 0) {
+                    moneyLeft -= battleField.handleClick(x, y, currentSelectedCard);
+                    // Bug: If you place a unit on a cell twice, it subtracts the cost twice
+                }
+            } catch (SlickException e) {
+                e.printStackTrace();
+            }
 
-        for(int i = 0; i < cards.size(); i ++) {
-            AlienUnitCard card = cards.get(i);
+            for(int i = 0; i < cards.size(); i ++) {
+                AlienUnitCard card = cards.get(i);
 
-            if(card.contains(x, y)) {
-                currentSelectedCard = i;
+                if(card.contains(x, y)) {
+                    currentSelectedCard = card;
+                }
             }
         }
     }
@@ -74,6 +84,10 @@ public class PlayScreen extends BasicGameState {
         renderer = new Renderer();
 
         battleField = new BattleField();
+        battleStage = BattleStage.BATTLE_SETUP;
+        setupTimer = 60;
+        costTimer = 0;
+        moneyLeft = 67;
     }
 
     @Override
@@ -90,7 +104,19 @@ public class PlayScreen extends BasicGameState {
 
         Font font = new Font("Verdana", Font.BOLD, 35);
         TrueTypeFont ttf = new TrueTypeFont(font, true);
-        ttf.drawString(1105, 595, "$67", Color.black);
+        ttf.drawString(1105, 595, String.format("$%d", moneyLeft), Color.black);
+        if(battleStage == BattleStage.BATTLE_SETUP) {
+            ttf.drawString(0, 0, String.format("Time Left: %f", setupTimer), Color.black);
+            if(currentSelectedCard != null) {
+                float brightness = (float)Math.sin(costTimer) / 2 + 0.5f;
+                if(moneyLeft - currentSelectedCard.cost < 0) {
+                    ttf.drawString(1105, 620, String.format("$%d", moneyLeft - currentSelectedCard.cost), new Color(1.0f, brightness, brightness));
+                }
+                else {
+                    ttf.drawString(1105, 620, String.format("$%d", moneyLeft - currentSelectedCard.cost), new Color(brightness, brightness, brightness));
+                }
+            }
+        }
 
         battleField.render(renderer);
     }
@@ -101,18 +127,34 @@ public class PlayScreen extends BasicGameState {
         int mouseX = input.getMouseX();
         int mouseY = input.getMouseY();
 
-        for(AlienUnitCard card : cards) {
-            if(card.getSprite().getBounds().contains(mouseX, mouseY)) {
-                card.activate();
-            }
-            else {
-                card.deactivate();
+        if(battleStage == BattleStage.BATTLE_SETUP) {
+            for(AlienUnitCard card : cards) {
+                if(card.getSprite().getBounds().contains(mouseX, mouseY)) {
+                    card.activate();
+
+                }
+                else {
+                    card.deactivate();
+                }
+
+                card.update(arg2 / 1000.0f);
             }
 
-            card.update(arg2 / 1000.0f);
+            if(currentSelectedCard != null) {
+                costTimer += 10 * arg2 / 1000.0f;
+            }
+
+            setupTimer -= arg2 / 1000.0f;
+            if(setupTimer < 0) {
+                battleStage = BattleStage.BATTLE_RUN;
+                for(AlienUnitCard card : cards) {
+                    card.deactivate();
+                }
+            }
         }
-
-        battleField.update(arg2 / 1000.0f);
+        else if(battleStage == BattleStage.BATTLE_RUN) {
+            battleField.update(arg2 / 1000.0f);
+        }
     }
     
 }

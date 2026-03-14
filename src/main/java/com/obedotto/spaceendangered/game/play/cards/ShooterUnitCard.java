@@ -11,6 +11,8 @@ public class ShooterUnitCard extends AlienUnitCard {
         this.sprite = new Sprite("src/main/resources/sprites/alienShooter-card1.png", 150, 150);
         this.sprite.setX(15);
         this.sprite.setY(567);
+        this.cost = 5;
+        this.cardType = AlienCard.SHOOTER;
     }
 
 }
